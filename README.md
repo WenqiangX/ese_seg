@@ -3,7 +3,7 @@
 Official implementation of [Explicit Shape Encoding for Real-time Instance Segmentation](http://mvig.sjtu.edu.cn/research/fastseg/fastseg.pdf).
 
 <p align='center'>
-    <img src="quality.png", width="480">
+    <img src="quality.png", width="640">
 </p>
 
 TODO
