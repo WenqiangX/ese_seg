@@ -1,6 +1,6 @@
 # Explicit Shape Encoding for Real-time Instance Segmentation
 
-Official implementation of [Explicit Shape Encoding for Real-time Instance Segmentation](http://mvig.sjtu.edu.cn/research/fastseg/fastseg.pdf).
+Official implementation of [Explicit Shape Encoding for Real-time Instance Segmentation](#).
 
 <p align='center'>
     <img src="quality.png", width="640">
