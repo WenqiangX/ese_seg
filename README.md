@@ -1,4 +1,4 @@
-Official implementation of [Explicit Shape Encoding for Real-time Instance Segmentation](https://arxiv.org/abs/1908.04067).
+Official implementation of [Explicit Shape Encoding for Real-time Instance Segmentation](https://arxiv.org/abs/1908.04067). 
 
 <p align='center'>
     <img src="quality.png", width="640">
@@ -23,9 +23,11 @@ Contents
 
 ### Requirements
 - python 3.6
-- gluon-cv 0.4.0
 - mxnet 1.5.0
 - shapely 1.6.4
+
+Other common package version is not very crucial.
+
 ### Features
 - Include both ESE-Seg(Yolov3-darknet53) and ESE-Seg(Yolov3-tiny).
 - Good performance
@@ -39,14 +41,14 @@ Contents
 
 - Some efficient backbones on hand
 
-  Like tiny yolov3, yolov3. 
+  Like yolov3-tiny, yolov3. 
 
   Check folder `/gluon-cv/gluoncv/model_zoo/yolo/darknet.py` for details.
 ---
 
 ### Preparation
 ##### 1) Code
-`git clone https://github.com/wanghaiyangMIT/ESE-SEG.git`
+`git clone https://github.com/WenqiangX/ese_seg.git`
 
 `git clone https://github.com/dmlc/gluon-cv.git`
 
@@ -56,9 +58,9 @@ Contents
 
 `cd ..`
 
-`cp -r ./ESE-SEG/gluon-cv gluon-cv`
+`cp -r ./ese_seg/gluon-cv gluon-cv`
 
-`cd ESE-SEG`
+`cd ese_seg`
 
 ##### 2) Data
 - SBD (Semantic Boundaries Dataset and Benchmark)
@@ -105,7 +107,7 @@ We will release two pretrained weight based on darknet53 and tinydarknet in some
 
 1.1) run
 
-`cd ESE-SEG`
+`cd ese_seg`
 
 `python sbd_train_che_8.py --syncbn --network darknet53 --batch-size 20 --dataset voc --gpus 0 --warmup-epochs 10 --save-prefix ./darknet53_result`
 
@@ -115,7 +117,7 @@ or
 
 you can also change the val dataset to voc2012 by --val_2012.
 
-The result are bot very well by direct training. Your can pretrain only bbox in coco, make its position accurate.
+The result are both very well by direct training. Your can pretrain only bbox in coco, make its bbox prediction more accurate.
 
 ##### 2) Pretrain bbox
 
@@ -136,10 +138,10 @@ To Do:
 ---
 
 ### Evaluation
-`cd ESE-SEg`
+`cd ese_seg`
 
 ##### 1) ESE-SEG Yolov3
-1.1) Your should have a model weight $weight_path$
+1.1) Your should have a model weight \$weight_path\$
 
 1.2) run
 
@@ -149,7 +151,7 @@ or
 
 `python sbd_eval_che_8.py --network darknet53 --resume weight_path --save-prefix ./eval_voc2012_tinydarknet`
 
-##### 2) ESE-SEG tiny_yolov3
+##### 2) ESE-SEG yolov3-tiny
 2.1) Your should have a model weight $weight_path$
 
 2.2) run
@@ -162,17 +164,17 @@ or
 
 
 ### Demo
-`cd ESE-SEg`
+`cd ese-seg`
 
 ##### 1) ESE-SEG Yolov3
-1.1) Your should have a model weight $weight_path$ and image_dir
+1.1) Your should have a model weight \$weight_path\$ and \$image_dir\$
 
 1.2) run
 
 `python demo_yolo.py --network yolo3_darknet53_voc --images $image_dir$ --save_dir ./demo_darknet53 --pretrained $weight_path$`
 
-##### 2) ESE-SEG tiny_yolov3
-2.1) Your should have a model weight $weight_path$ and image_dir
+##### 2) ESE-SEG Yolov3-tiny
+2.1) Your should have a model weight $weight_path$ and \$image_dir\$
 
 2.2) run
 
@@ -188,8 +190,21 @@ Tiny-darknet: backbone ~2ms two-head ~3+3 ms
 
 ---
 
+### Citation
+If you find our work is useful to your research, feel free to cite
+```
+@inproceedings{xu2019ese,
+  title={Explicit Shape Encoding for Real-Time Instance Segmentation},
+  author={Xu, Wenqiang and Wang, Haiyang and Qi, Fubo and Lu, Cewu},
+  booktitle={ICCV},
+  year={2019}
+}
+```
 ### Credits
 I got a lot of code from [gluon-cv](https://github.com/dmlc/gluon-cv.git), thanks to Gluoncv.
 
-### Contact
-wanghaiyang@sjtu.edu.cn
+### Comments
+YOLOv3 in GluonCV is the best reimplemented YOLO so far, hence we build this system upon it. However, GluonCV is more a production code than research code, so even all we have to do is changing **dataloader and network prediction head**, it still took a lot of modification from original GluonCV. For research use, it is encouraged to use more light-weighted or more flexible detection framework, should make the implementation of our core idea easier.
+
+### Other Implementation
+[ESE-SEG](https://github.com/Haiyang-W/ESE-SEG.git)
