@@ -1,0 +1,20 @@
+name: gluon_vision_docs
+dependencies:
+- python
+- sphinx>=1.5.5
+- scipy
+- numpy
+- matplotlib
+- sphinx_rtd_theme
+- pip:
+  - https://github.com/mli/mx-theme/tarball/master
+  - sphinx-gallery
+  - mxnet-cu92mkl==1.5.0b20190115
+  # - guzzle_sphinx_theme
+  - recommonmark
+  - Image
+  - awscli
+  - tqdm
+  - requests
+  - Pillow
+  - opencv-python
