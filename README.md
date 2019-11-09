@@ -193,11 +193,12 @@ Tiny-darknet: backbone ~2ms two-head ~3+3 ms
 ### Citation
 If you find our work is useful to your research, feel free to cite
 ```
-@inproceedings{xu2019ese,
-  title={Explicit Shape Encoding for Real-Time Instance Segmentation},
-  author={Xu, Wenqiang and Wang, Haiyang and Qi, Fubo and Lu, Cewu},
-  booktitle={ICCV},
-  year={2019}
+@InProceedings{Xu_2019_ESE,
+author = {Xu, Wenqiang and Wang, Haiyang and Qi, Fubo and Lu, Cewu},
+title = {Explicit Shape Encoding for Real-Time Instance Segmentation},
+booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+month = {October},
+year = {2019}
 }
 ```
 ### Credits
